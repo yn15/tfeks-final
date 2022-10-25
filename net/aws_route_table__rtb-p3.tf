@@ -2,8 +2,8 @@
 # aws_route_table.rtb-0939e7f3ae6e7b829:
 resource "aws_route_table" "rtb-0939e7f3ae6e7b829" {
   propagating_vgws = []
-  route            = [
-     {
+  route = [
+    {
       carrier_gateway_id         = ""
       cidr_block                 = "0.0.0.0/0"
       destination_prefix_list_id = ""

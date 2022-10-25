@@ -74,7 +74,7 @@ resource "aws_subnet" "subnet-p1" {
   assign_ipv6_address_on_creation = false
   availability_zone               = data.aws_availability_zones.az.names[0]
   cidr_block                      = "10.0.1.0/24"
-  map_public_ip_on_launch         = false
+  map_public_ip_on_launch         = true
   tags = {
     "Name"                                      = "Public1"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
@@ -96,7 +96,7 @@ resource "aws_subnet" "subnet-p2" {
   assign_ipv6_address_on_creation = false
   availability_zone               = data.aws_availability_zones.az.names[1]
   cidr_block                      = "10.0.2.0/24"
-  map_public_ip_on_launch         = false
+  map_public_ip_on_launch         = true
   tags = {
     "Name"                                      = "Public2"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
@@ -117,11 +117,11 @@ resource "aws_subnet" "subnet-p3" {
   assign_ipv6_address_on_creation = false
   availability_zone               = data.aws_availability_zones.az.names[2]
   cidr_block                      = "10.0.3.0/24"
-  map_public_ip_on_launch         = false
+  map_public_ip_on_launch         = true
   tags = {
     "Name"                                      = "Public3"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
-    "kubernetes.io/role/elb"           = "1"
+    "kubernetes.io/role/elb"                    = "1"
     "workshop"                                  = "subnet-p3"
   }
   vpc_id = aws_vpc.cluster.id
